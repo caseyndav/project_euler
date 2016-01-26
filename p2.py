@@ -11,52 +11,52 @@
 # four million, find the sum of the even-valued terms.
 
 def fibonacci(max_value):
-	"""
-	Computes Fibonacci sequence up to (but excluding) max_value.
-	"""
-	seq = [0, 1]
-	curr_sum = seq[-1] + seq[-2]
-	while (curr_sum < max_value):
-		seq.append(curr_sum)
-		curr_sum = seq[-1] + seq[-2]
-	return seq
+    """
+    Computes Fibonacci sequence up to (but excluding) max_value.
+    """
+    seq = [0, 1]
+    curr_sum = seq[-1] + seq[-2]
+    while (curr_sum < max_value):
+        seq.append(curr_sum)
+        curr_sum = seq[-1] + seq[-2]
+    return seq
 
 def sum_even_fibonacci_brute(max_value):
-	"""
-	Brute force solution: Compute the Fibonacci sequence up to n, then check
-	each element of the sequence for divisibility by 2. If even, add to sum.
-	"""
-	seq = fibonacci(max_value)
-	total = 0
-	for i in seq:
-		if (i % 2 == 0):
-			total += i
-	return total
+    """
+    Brute force solution: Compute the Fibonacci sequence up to n, then check
+    each element of the sequence for divisibility by 2. If even, add to sum.
+    """
+    seq = fibonacci(max_value)
+    total = 0
+    for i in seq:
+        if (i % 2 == 0):
+            total += i
+    return total
 
 def sum_even_fibonacci_smart(max_value):
-	"""
-	Space efficient way of computing the total. Only ever stores last two
-	elements of Fibonacci sequence and their sum.
-	"""
-	e0, e1 = 0, 1
-	curr_sum = e0 + e1
-	total = 0
-	while (curr_sum < max_value):
-		if (curr_sum % 2 == 0):
-			total += curr_sum
-		e0 = e1
-		e1 = curr_sum
-		curr_sum = e0 + e1
-	return total
+    """
+    Space efficient way of computing the total. Only ever stores last two
+    elements of Fibonacci sequence and their sum.
+    """
+    e0, e1 = 0, 1
+    curr_sum = e0 + e1
+    total = 0
+    while (curr_sum < max_value):
+        if (curr_sum % 2 == 0):
+            total += curr_sum
+        e0 = e1
+        e1 = curr_sum
+        curr_sum = e0 + e1
+    return total
 
 def sum_even_fibonacci_smarter(max_value):
-	"""
-	Takes advantage of the fact that only every third element of the Fibonacci
-	sequence is even (by virtue of adding the two previous odd elements).
-	"""
-	seq = fibonacci(max_value)
-	return sum(seq[::3]) # Add every third element
+    """
+    Takes advantage of the fact that only every third element of the Fibonacci
+    sequence is even (by virtue of adding the two previous odd elements).
+    """
+    seq = fibonacci(max_value)
+    return sum(seq[::3]) # Add every third element
 
 if __name__ == "__main__":
-	max_value = 4000000
-	print "Sum: ", sum_even_fibonacci_smarter(max_value)
+    max_value = 4000000
+    print "Sum: ", sum_even_fibonacci_smarter(max_value)
