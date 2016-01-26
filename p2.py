@@ -12,11 +12,11 @@
 
 def fibonacci(max_value):
     """
-    Computes Fibonacci sequence up to (but excluding) max_value.
+    Computes Fibonacci sequence up to and including max_value.
     """
     seq = [0, 1]
     curr_sum = seq[-1] + seq[-2]
-    while (curr_sum < max_value):
+    while (curr_sum <= max_value):
         seq.append(curr_sum)
         curr_sum = seq[-1] + seq[-2]
     return seq
@@ -41,7 +41,7 @@ def sum_even_fibonacci_smart(max_value):
     e0, e1 = 0, 1
     curr_sum = e0 + e1
     total = 0
-    while (curr_sum < max_value):
+    while (curr_sum <= max_value):
         if (curr_sum % 2 == 0):
             total += curr_sum
         e0 = e1
@@ -59,4 +59,4 @@ def sum_even_fibonacci_smarter(max_value):
 
 if __name__ == "__main__":
     max_value = 4000000
-    print "Sum: ", sum_even_fibonacci_smarter(max_value)
+    print sum_even_fibonacci_smarter(max_value)
