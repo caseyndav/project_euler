@@ -8,6 +8,7 @@
 import tree
 import factor
 
+
 def largest_prime_factor(n):
     """
     Generates a factor tree then performs depth-first search to find largest
@@ -17,6 +18,7 @@ def largest_prime_factor(n):
     factor.factor(t)
     largest = dfs(t)
     return largest
+
 
 def dfs(t):
     """

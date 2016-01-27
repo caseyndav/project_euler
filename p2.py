@@ -10,6 +10,7 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed
 # four million, find the sum of the even-valued terms.
 
+
 def fibonacci(max_value):
     """
     Computes Fibonacci sequence up to and including max_value.
@@ -20,6 +21,7 @@ def fibonacci(max_value):
         seq.append(curr_sum)
         curr_sum = seq[-1] + seq[-2]
     return seq
+
 
 def sum_even_fibonacci_brute(max_value):
     """
@@ -32,6 +34,7 @@ def sum_even_fibonacci_brute(max_value):
         if (i % 2 == 0):
             total += i
     return total
+
 
 def sum_even_fibonacci_smart(max_value):
     """
@@ -49,13 +52,15 @@ def sum_even_fibonacci_smart(max_value):
         curr_sum = e0 + e1
     return total
 
+
 def sum_even_fibonacci_smarter(max_value):
     """
     Takes advantage of the fact that only every third element of the Fibonacci
     sequence is even (by virtue of adding the two previous odd elements).
     """
     seq = fibonacci(max_value)
-    return sum(seq[::3]) # Add every third element
+    return sum(seq[::3])  # Add every third element
+
 
 if __name__ == "__main__":
     max_value = 4000000

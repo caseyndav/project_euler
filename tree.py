@@ -2,6 +2,7 @@
 
 import sys
 
+
 class Tree(object):
     """
     Basic tree data structure.
@@ -11,7 +12,7 @@ class Tree(object):
         self.child1 = None
         self.child2 = None
         self.data = data
-    
+
     def has_children(self):
         if (self.child1 is not None or self.child2 is not None):
             return True
@@ -25,7 +26,7 @@ class Tree(object):
         leaves += self.child1.get_leaves()
         leaves += self.child2.get_leaves()
         return leaves
-    
+
     def print_tree(self, root=True):
         sys.stdout.write(str(self.data))
         if (self.has_children()):

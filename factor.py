@@ -2,6 +2,7 @@
 
 import tree
 
+
 def factor(t):
     """
     Factors using tree t as root node by checking if number is divisible by any
