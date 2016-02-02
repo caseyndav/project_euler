@@ -3,7 +3,7 @@
 import sys
 
 
-class Tree(object):
+class Tree:
     """
     Basic tree data structure.
     """
